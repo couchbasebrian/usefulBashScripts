@@ -20,6 +20,9 @@ then
   ATA=`grep dcp $FILE | grep "Attempting to add" | wc -l`
   STC=`grep dcp $FILE | grep "Stream closing" | wc -l`
   STCR0=`grep dcp $FILE | grep "stream created with start seqno 0 and" | wc -l`
+  DBC=`grep dcp $FILE | grep "Disconnecting because" | wc -l`
+  DBC2=`grep dcp $FILE | grep "Disconnected because" | wc -l`
+  CLEANUP=`grep dcp $FILE | grep "Clean up" | wc -l`
   #
   VBU=`grep dcp $FILE | grep vb | cut -f7- -d":" | cut -f2- -d"(" | cut -f1 -d")" | sort -u | wc -l`
   #
@@ -38,7 +41,10 @@ then
   echo "Total Received response                     :  $RR"
   echo "Total Shutting down dcp connections         :  $SDDC"
   echo "Total Stream created with start seqno 0 and :  $STCR0"
-  ACCOUNTEDFOR=$((BACKFILL + CREATESTREAM + STREAMCREATED + CREATETOSTREAM + SENDINGDS + DEADSTATE + CFCB + RR + VBD + SDDC + ATA + STC + STCR0))
+  echo "Total Disconnecting because                 :  $DBC"
+  echo "Total Disconnected because                  :  $DBC2"
+  echo "Total Clean up                              :  $CLEANUP"
+  ACCOUNTEDFOR=$((BACKFILL + CREATESTREAM + STREAMCREATED + CREATETOSTREAM + SENDINGDS + DEADSTATE + CFCB + RR + VBD + SDDC + ATA + STC + STCR0 + DBC + DBC2 + CLEANUP))
   UNACCOUNTED=$((DCP - ACCOUNTEDFOR))
   echo "Total Accounted for                   :  $ACCOUNTEDFOR"
   echo "Total Unaccounted for                 :  $UNACCOUNTED"
