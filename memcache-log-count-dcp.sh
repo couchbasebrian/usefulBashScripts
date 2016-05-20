@@ -19,7 +19,7 @@ then
   SDDC=`grep dcp $FILE | grep "Shutting down dcp connections" | wc -l`
   ATA=`grep dcp $FILE | grep "Attempting to add" | wc -l`
   STC=`grep dcp $FILE | grep "Stream closing" | wc -l`
-  STCR0=`grep dcp $FILE | grep "Stream created with start seqno 0 and" | wc -l`
+  STCR0=`grep dcp $FILE | grep "stream created with start seqno 0 and" | wc -l`
   #
   VBU=`grep dcp $FILE | grep vb | cut -f7- -d":" | cut -f2- -d"(" | cut -f1 -d")" | sort -u | wc -l`
   #
