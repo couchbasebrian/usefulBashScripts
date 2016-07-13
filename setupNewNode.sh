@@ -21,6 +21,10 @@ wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
 yum -y install telnet 
 echo "--- Get the rest of the repository ---"
 git clone https://github.com/couchbasebrian/usefulBashScripts.git
+echo "--- Set up ruby ---"
+yum -y install ruby ruby-devel rubygems
+echo "--- Set up couchbase for ruby ---"
+gem install couchbase
 echo "--- Done Installing ---"
 exit 0
 
