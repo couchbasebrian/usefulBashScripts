@@ -9,7 +9,7 @@ yum -y install wget
 echo "--- Installing zlib dependency"
 yum -y install zlib-devel
 echo "--- Getting Couchbase Repository RPM ---"
-wget http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-0-x86_64.rpm
+wget http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-2-x86_64.rpm
 echo "--- Installing Couchbase Repository RPM ---"
 rpm -ivh couchbase-release-1.0-0-x86_64.rpm
 echo "--- Installing Couchbase C client ---"
